@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto:wght@500&family=Space+Mono&display=swap');
+
+header{
+  background-color:#0023ff;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+footer{
+  background-color:#0023ff;
+  color:#1131ff;
+  text-align: left;
+  font-size: 10px;
+}
+
+p{
+  font-family: 'Roboto', sans-serif;
+}
+
+a{
+  font-family: 'Roboto', sans-serif;
+  color: rgb(255, 255, 255);
+  vertical-align: bottom;
+}
+
+input{
+  font-family: 'Roboto', sans-serif;
+  height: 40px;
+  border-radius: 1%;
+  border: 1px solid #d5d5d5;
+}
+
+textarea{
+  font-family: 'Roboto', sans-serif;
+}
+
+select{
+  font-family: 'Roboto', sans-serif;
+  font-size: 17px;
+  border: none;
+  height: 40px;
+  width: 220px;
+  border: 1px solid #d5d5d5;
+}
+
+a:visited {
+  color: rgb(255, 255, 255);
+}
+
+a:hover {
+  color: rgb(255, 255, 255);
+}
+
+a:active {
+  color: rgb(255, 255, 255);
+}
+
+input:checked {
+  border: 3px solid #0023ff;
+}
+
+#agreement{
+  text-align: left;
+}
+
+#liability{
+  text-align: right;
+}
+
+#firstName{
+  max-width: 40%;
+}
+
+#lastName{
+  max-width: 40%;
+  margin-left: auto; 
+  padding-left: 10px;
+}
+
+#birthday{
+  height: 40px;
+  width: 220px;
+  border-radius: 1%;
+}
+
+#logo{
+  height: 10%;
+  width: 10%;
+  min-width: 150px;
+}
+
+#submit{
+  background-color: #0023ff;
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  color: #FFFFFF;
+  height: 40px;
+  width: 50%;
+  margin: auto;
+}
+
+#submitApplication{
+  background-color: #0023ff;
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  color: #FFFFFF;
+  height: 40px;
+  width: 20%;
+  min-width: 200px;
+  margin: auto;
+}
+
+#createAccount{
+  background-color: #0023ff;
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  color: #FFFFFF;
+  height: 40px;
+  width: 50%;
+  margin: auto;
+}
+
+#gameButton{
+  background-color: #0023ff;
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  color: #FFFFFF;
+  height: 40px;
+}
+
+#clear{
+  background-color: #0023ff;
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  color: #FFFFFF;
+  height: 30px;
+  width: 20%;
+  margin: auto;
+}
+
+#email{
+  width: 80%
+}
+
+#game{
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+  border-style: none;
+}
+
+#errorMessage{
+  color: #fc746f;
+}
+
+input[type="radio"]{
+  appearance: none;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(168, 166, 176);
+}
+
+.card{
+  max-width: 1000px;
+  padding: 1%;
+  background-color:#e7e7e7;
+}
+
+.card-title{
+  padding-top: 5px;
+  font-weight: bold;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #d5d5d5;
+  width: 80%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.modal-content input{
+  max-width: 30%;
+  min-width: 25%;
+}
+
+input[type="checkbox"] {
+  accent-color: #0023ff;
+}
