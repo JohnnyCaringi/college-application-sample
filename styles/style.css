@@ -120,14 +120,6 @@ input:checked {
   margin: auto;
 }
 
-#gameButton{
-  background-color: #0023ff;
-  font-family: 'Roboto', sans-serif;
-  border: none;
-  color: #FFFFFF;
-  height: 40px;
-}
-
 #clear{
   background-color: #0023ff;
   font-family: 'Roboto', sans-serif;
@@ -140,13 +132,6 @@ input:checked {
 
 #email{
   width: 80%
-}
-
-#game{
-  margin: 0 auto;
-  text-align: center;
-  display: block;
-  border-style: none;
 }
 
 #errorMessage{
@@ -179,11 +164,6 @@ input[type="radio"]{
   border: 1px solid #d5d5d5;
   width: 80%;
   font-family: 'Roboto', sans-serif;
-}
-
-.modal-content input{
-  max-width: 30%;
-  min-width: 25%;
 }
 
 input[type="checkbox"] {
