@@ -180,22 +180,5 @@ $(document).ready(function(){
     if(document.getElementById('liability').checked){
       document.getElementById('tyModal').style.display='block';
     }
-
-    //If the correct date is entered the user gets to see a secret
-    if(document.getElementById("birthday").value === "1990-02-11"){
-      document.getElementById('gameButton').style.visibility = 'visible';
-    }
-    else{
-      document.getElementById('gameButton').style.visibility = 'hidden';
-    }
   });
-
-  //Secret button that does cool things if visible
-  $("#gameButton").click(function(){
-    document.getElementById("gameButton").style.visibility = 'hidden';
-    $("#gameHolder").append(
-      '<iframe src="https://www.retrogames.cc/embed/18014-dragon-warrior-iv-usa.html" id="game" width="800" height="650" frameborder="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no"></iframe>'
-    );
-  });
-
 });
