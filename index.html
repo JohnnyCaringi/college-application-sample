@@ -38,16 +38,26 @@
             <h5>Address</h5>
             <input type="text" id="address" name="address" placeholder="123 Test St Florence, AL" class="form-control">
           </div>
-          <div class="col-sm">
-            <h5>Highschool GPA</h5>
-            <input type="number" id="gpa" name="gpa" placeholder="2.0" class="form-control">
+          <div class="col">
+            <h5>Country</h5>
+            <select id="country" name="country" class="container-fluid">
+              <option value="Select"></option>
+              <option value="US">United States</option>
+              <option value="Canada">Canada</option>
+            </select>
+          </div>
+          <div class="col-2">
+            <h5></h5><br>
+            <select id="state" name="state" class="container-fluid">
+              <option value="Select" label=" "></option>
+            </select>
           </div>
         </div>
         <br>
 
         <div class="row">
           <h5>Gender</h5>
-          <div class="col">
+          <div class="col-2">
             <div class="col">
               <label for="male">Male</label>
             </div>
@@ -70,9 +80,14 @@
             </div>
           </div> 
 
-          <div class="col-4">
+          <div class="col-3">
             <h5>Email</h5>
             <input type="email" id="email" name="email" placeholder="emailaddress@example.com">
+          </div>
+
+          <div class="col">
+            <h5>GPA</h5>
+            <input type="number" id="gpa" name="gpa" placeholder="2.0" class="form-control">
           </div>
 
           <div class="col-4">
@@ -84,8 +99,8 @@
               <option value="Anything Else">Anything Else</option>
             </select>
           </div>
-
         </div>
+        <br>
         <br>
         <h5>Highschool Activities:</h5>
         <textarea id="activities"></textarea>
@@ -96,13 +111,14 @@
         <br><br>
         <button id="submit">Submit</button>
         <button id="clear">Clear</button>
-        <p id="errorMessage"></p>
+        <button id="json">Load JSON</buutton>
       </div>
+      <p id="errorMessage"></p>
     </div>
     <br>
 
     <!-- Information Review -->
-    <div class="contianer-fluid text-center">
+    <div id="infoDiv" class="contianer-fluid text-center">
       <h2 class="reviewInfo">Review Information</h2>
       <p id="applicantInfo" class="reviewInfo"></p>
       <br>

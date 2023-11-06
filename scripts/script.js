@@ -1,3 +1,72 @@
+let states = [
+  "AL",
+  "AK",
+  "AZ",
+  "AR",
+  "CA",
+  "CO",
+  "CT",
+  "DE",
+  "FL",
+  "GA",
+  "HI",
+  "ID",
+  "IL",
+  "IN",
+  "IA",
+  "KS",
+  "KY",
+  "LA",
+  "ME",
+  "MD",
+  "MA",
+  "MI",
+  "MN",
+  "MS",
+  "MO",
+  "MT",
+  "NE",
+  "NV",
+  "NH",
+  "NJ",
+  "NM",
+  "NY",
+  "NC",
+  "ND",
+  "OH",
+  "OK",
+  "OR",
+  "PA",
+  "RI",
+  "SC",
+  "SD",
+  "TN",
+  "TX",
+  "UT",
+  "VT",
+  "VA",
+  "WA",
+  "WV",
+  "WI",
+  "WY"
+];
+
+let provinces = [
+  "AB",
+  "BC",
+  "MB",
+  "NB",
+  "NL",
+  "NS",
+  "ON",
+  "PE",
+  "QC",
+  "SK",
+  "NT",
+  "NU",
+  "YT"
+];
+
 //Calculates an age for a given birthday
 function findAge(birthday){
   //Current Time
@@ -93,15 +162,58 @@ function checkFields(formComplete){
     $("#activities").css("background-color", "#FFFFFF");
   }
 
+  if((document.getElementById("country").value === "Select" || (document.getElementById("country").value === ""))){
+    $("#country").css("background-color", "#fc746f");
+    formComplete = false;
+  }
+  else{
+    $("country").css("background-color", "#FFFFFF");
+  }
+
+  if((document.getElementById("state").value === "Select" || (document.getElementById("state").value === ""))){
+    $("#state").css("background-color", "#fc746f");
+    formComplete = false;
+  }
+  else{
+    $("state").css("background-color", "#FFFFFF");
+  }
+
   return formComplete;
 };
 
+//Ensures that States are selectable if user lives in the US and that
+//provinces are available if user lives in Canada
+function chooseJurisdictions(){
+  $("#state").empty();
+  $("#state").append(
+    '<option value="Select"></option>'
+  );
+  if(document.getElementById("country").value === "US"){
+      states.forEach(function(st){
+        $("#state").append(
+          '<option value="' + st + '">' + st + '</option>'
+        );
+    });
+  }
+  else if(document.getElementById("country").value === "Canada"){
+    provinces.forEach(function(pv){
+      $("#state").append(
+        '<option value="' + pv + '">' + pv + '</option>'
+      );
+    });
+  }
+};
 
 $(document).ready(function(){
   //Elements with the class reviewInfo don't need to be seen until
   //the info was submitted
   document.querySelectorAll('.reviewInfo').forEach(function(element) {
     element.style.visibility = 'hidden';
+  });
+
+  //Changes jurisdictions based on country
+  $("#country").on("change", function(){
+    chooseJurisdictions();
   });
 
   //Clears all fields
@@ -117,6 +229,36 @@ $(document).ready(function(){
     document.getElementById("degree").value = null;
     document.getElementById("activities").value = null;
     document.getElementById("email").value = null;
+    document.getElementById("country").value = "Select";
+    document.getElementById("state").value = null;
+  });
+
+  //Load example data from example.json
+  $("#json").click(function(){
+    $.getJSON('example.json', function(json){
+      document.getElementById("firstName").value = json.firstName;
+      document.getElementById("lastName").value = json.lastName;
+      document.getElementById("birthday").value = json.birthday;
+      document.getElementById("address").value = json.address;
+      document.getElementById("gpa").value = json.gpa;
+      document.getElementById("degree").value = json.degree;
+      document.getElementById("activities").value = json.activities;
+      document.getElementById("email").value = json.email;
+      document.getElementById("country").value = json.country;
+      chooseJurisdictions();
+      document.getElementById("state").value = json.state;
+
+      switch(json.gender){
+        case "Male":
+          $("#male").prop("checked", true);
+          break;
+        case "Female":
+          $("#female").prop("checked", true);
+          break;
+        default:
+          $("#nonbinary").prop("checked", true);
+      }
+    });
   });
 
   //Ensures all fields are filled out and prints application information to the page when everything is filled out
@@ -141,11 +283,13 @@ $(document).ready(function(){
       $("#lastName").css("background-color", "#FFFFFF");
       $("#birthday").css("background-color", "#FFFFFF");
       $("#address").css("background-color", "#FFFFFF");
+      $("#address").css("background-color", "#FFFFFF");
+      $("#address").css("background-color", "#FFFFFF");
       $("#gpa").css("background-color", "#FFFFFF");
       $('input[name="gender"]').css("background-color", "rgb(168, 166, 176)");
       $("#email").css("background-color", "#FFFFFF");
-      $("#degree").css("background-color", "#FFFFFF");
-      $("#activities").css("background-color", "#FFFFFF");
+      $("#country").css("background-color", "#FFFFFF");
+      $("#state").css("background-color", "#FFFFFF");
 
       //Removes the error message if it did appear
       $("#errorMessage").text("");
@@ -157,7 +301,8 @@ $(document).ready(function(){
                         document.getElementById("email").value + "<br>" +
                         "Age: " + age + "<br>" +
                         "Gender: " + $("input[name='gender']:checked").val() + "<br>" + 
-                        "Address: " + document.getElementById("address").value + "<br>" +
+                        "Address: " + document.getElementById("address").value + " " +
+                        document.getElementById("state").value + " " + document.getElementById("country").value + "<br>" +
                         "G.P.A.: " + document.getElementById("gpa").value + "<br>" + 
                         "Applying to be a " + document.getElementById("degree").value + " Major" + "<br>" + 
                         "Highschool activities: " + "<br>" + document.getElementById("activities").value;
@@ -172,6 +317,9 @@ $(document).ready(function(){
       document.querySelectorAll('.reviewInfo').forEach(function(element) {
         element.style.visibility = 'visible';
       });
+
+      //Scrolls the page to the printed application
+      $('html, body').scrollTop($("#infoDiv").offset().top);
     }
   });
 
